@@ -1,19 +1,27 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
-$db_host = "localhost";
-$db_name = "cms";
-$db_user = "cms_www";
-$db_pass = "h(p)g)7.HNwg6as5";
+/**
+ * Get the database connection
+ * 
+ * @return object Connection to a MySQL server
+ */
+function getDB()
+{
+  $db_host = "localhost";
+  $db_name = "cms";
+  $db_user = "cms_www";
+  $db_pass = "h(p)g)7.HNwg6as5";
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
-if (mysqli_connect_error()) {
-  echo mysqli_connect_error();
-  exit;
+  if (mysqli_connect_error()) {
+    echo mysqli_connect_error();
+    exit;
+  }
+
+  return $conn;
 }
+
 
 
 // echo '<pre>';
